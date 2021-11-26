@@ -1,7 +1,7 @@
 export interface TodoType {
   id: number
   name: string
-  completed: boolean
+  checked: boolean
 }
 export interface TodoState {
   todos: Array<TodoType>
@@ -15,7 +15,7 @@ export enum TodoActionsTypes {
 interface AddTodoAction {
   type: TodoActionsTypes.ADD_TODO;
   text: string;
-  completed: boolean
+  checked: boolean
 }
 interface DeleteTodoAction {
   type: TodoActionsTypes.DELETE_TODO;

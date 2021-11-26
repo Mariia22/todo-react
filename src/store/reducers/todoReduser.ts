@@ -1,4 +1,4 @@
-import { TodoState, TodoAction, TodoActionsTypes, TodoType } from './../../types/todo'
+import { TodoState, TodoAction, TodoActionsTypes } from './../../types/todo'
 
 const initialState: TodoState = {
   todos: []
@@ -9,7 +9,7 @@ export const todoReducer = (state = initialState, action: TodoAction): TodoState
     case TodoActionsTypes.ADD_TODO: {
       return {
         ...state,
-        todos: [...state.todos, { id: Date.now(), name: action.text, completed: action.completed }]
+        todos: [...state.todos, { id: Date.now(), name: action.text, checked: action.checked }]
       }
     }
     case TodoActionsTypes.DELETE_TODO: {
@@ -19,13 +19,20 @@ export const todoReducer = (state = initialState, action: TodoAction): TodoState
       }
     }
     case TodoActionsTypes.TOGGLE_TODO: {
+      const newTodos = [...state.todos];
+      newTodos.map(todo => {
+        if (todo.id === action.id) {
+          todo.checked != todo.checked
+        }
+      })
+      return {
+        ...state, todos: newTodos
+      }
+    }
+    case TodoActionsTypes.CLEAR_ALL: {
       return {
         ...state,
-        todos:[...state.todos.map(todo => {
-          if (todo.id === action.id) {
-            todo.completed != todo.completed
-          }
-        })]
+        todos: []
       }
     }
     default: { return state }
