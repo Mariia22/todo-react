@@ -1,9 +1,8 @@
-import React from 'react'
-import style from 'App.module.scss'
+import style from './App.module.scss'
 
 function App() {
   return (
-    <div className="App">
+    <div className={style.appMain}>
       <h1>Typescript</h1>
     </div>
   )
