@@ -1,11 +1,21 @@
-import style from './App.module.scss'
+import { useState } from 'react';
+import { ThemeType, ThemeDescribe } from './types/theme';
+import { ThemeContext } from './hooks/Theme.context';
+import { Main } from './components/Main/Main';
+import { Header } from './components/Header/Header'
 
 function App() {
+  const [currentTheme, setCurrentTheme] = useState<ThemeType>('light');
   return (
-    <div className={style.appMain}>
-      <h1>Typescript</h1>
-    </div>
-  )
-}
+    <ThemeContext.Provider value={{
+      themeType: currentTheme,
+      theme: ThemeDescribe[currentTheme],
+      setCurrentTheme
+    }}>
+      <Header />
+      <Main />
+    </ThemeContext.Provider>
+  );
+};
 
 export default App;
