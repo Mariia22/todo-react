@@ -1,0 +1,16 @@
+.header{
+ display:flex;
+flex-direction:column;
+}
+.headerLight{
+  @extend .header;
+  background: url('../../images/bg-desktop-light.jpg') no-repeat #fafafa;
+}
+.headerDark{
+  @extend .header;
+  background: url('../../images/bg-desktop-dark.jpg') no-repeat #fafafa;
+}
+.header_headers{
+  display: flex;
+  justify-content: space-around;
+}

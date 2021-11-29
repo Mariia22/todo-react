@@ -25,10 +25,9 @@ body{
   font-size: $font-size;
   color: $very-dark-grayish-blue;
 }
-.appMain {
+.app_content {
   display: flex;
   flex-direction: column;
   overflow: hidden;
   min-height: 100vh;
-  background-color: $font-color;
 }

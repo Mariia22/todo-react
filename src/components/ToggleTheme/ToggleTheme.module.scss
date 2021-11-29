@@ -1,0 +1,16 @@
+.button{
+  border: 0;
+  outline: 0;
+  width: 40px;
+  height: 30px;
+}
+
+.buttonLight {
+@extend .button;
+ background: url('../../images/icon-moon.svg') no-repeat transparent center;
+}
+
+.buttonDark {
+  @extend .button;
+  background: url('../../images/icon-sun.svg') no-repeat transparent center;
+}
