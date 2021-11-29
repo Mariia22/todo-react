@@ -1,0 +1,11 @@
+@import './../../styles/variables.scss';
+
+.footer{
+  background-color: var(--background-color);
+  text-align: center;
+}
+
+.footer a{
+  color: $bright-blue;
+  text-decoration: none;
+}

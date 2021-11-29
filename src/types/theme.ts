@@ -1,7 +1,7 @@
 enum Color {
-  VeryLightBlueGrey = 'hsl(236, 33%, 92%)',
+  VeryLightBlueGrey = 'hsl(0, 0%, 98%)',
   LightGrey = 'hsl(0, 0%, 98%)',
-  VeryDarkGreyBlue = 'hsl(235, 19%, 35%)',
+  VeryDarkGreyBlue = 'hsl(235, 24%, 19%)',
   FontColor = 'black'
 }
 export type ThemeType = 'light' | 'dark'
