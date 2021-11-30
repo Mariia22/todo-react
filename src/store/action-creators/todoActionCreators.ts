@@ -1,8 +1,8 @@
 import { TodoAction, TodoActionsTypes } from './../../types/todo';
 import { TodoType } from "../../types/todo";
 
-export function AddTodoAction(todo: TodoType): TodoAction {
-  return { type: TodoActionsTypes.ADD_TODO, payload: todo };
+export function AddTodoAction(text: TodoType['text']): TodoAction {
+  return { type: TodoActionsTypes.ADD_TODO, payload:text};
 }
 
 export function DeleteTodoAction(id: number): TodoAction {

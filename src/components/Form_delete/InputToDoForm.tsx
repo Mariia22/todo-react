@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme } from './../../hooks/Theme.context';
+import { useTheme } from '../../hooks/Theme.context';
 import style from './InputToDoForm.module.scss'
 
 

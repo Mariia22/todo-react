@@ -1,7 +1,6 @@
-
 export interface TodoType {
   id: number
-  name: string
+  text: string
   checked: boolean
 }
 export interface TodoState {
@@ -15,7 +14,7 @@ export enum TodoActionsTypes {
 }
 interface AddTodoAction {
   type: TodoActionsTypes.ADD_TODO;
-  payload: TodoType
+  payload: string;
 }
 interface DeleteTodoAction {
   type: TodoActionsTypes.DELETE_TODO;

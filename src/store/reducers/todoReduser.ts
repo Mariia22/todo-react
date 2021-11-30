@@ -9,7 +9,7 @@ export const todoReducer = (state = initialState, action: TodoAction): TodoState
     case TodoActionsTypes.ADD_TODO: {
       return {
         ...state,
-        todos: [...state.todos, action.payload]
+        todos: [...state.todos, { id: Date.now(), text: action.payload, checked: false }]
       }
     }
     case TodoActionsTypes.DELETE_TODO: {
