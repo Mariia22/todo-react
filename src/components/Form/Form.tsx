@@ -14,16 +14,12 @@ export const FormComponent: React.FC = () => {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     AddTodoAction(value);
-    console.log(todos);
   }
 
   return (
-    <div style={{ ...theme } as React.CSSProperties} className={style.main}>
-      <form onSubmit={handleSubmit}>
-        <div className={style.formCheckbox}></div>
-        <input style={{ ...theme } as React.CSSProperties} className={style.formInput} type="text"
-          placeholder='Create a new todo...' value={value} onChange={(event) => { setValue(event.target.value) }} />
-      </form>
-    </div>
+    <form onSubmit={handleSubmit} className={style.form}>
+      <input style={{ ...theme } as React.CSSProperties} className={style.formInput} type="text"
+        placeholder='Create a new todo...' value={value} onChange={(event) => { setValue(event.target.value) }} />
+    </form>
   )
 }

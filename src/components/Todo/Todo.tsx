@@ -7,12 +7,11 @@ interface Props {
   text: string
 }
 export const Todo: React.FC<Props> = ({ id, checked, text }) => {
-  console.log(id, checked, text);
   return (
-    <div key={id}>
-      <div className={style.formCheckbox}>{checked}</div>
-      {text}
-    </div>
+    <li className={style.todo}>
+      <input className={style.todoCheckBox} checked={checked} type='checkbox' />
+      <label>{text}</label>
+    </li>
   )
 }
 
