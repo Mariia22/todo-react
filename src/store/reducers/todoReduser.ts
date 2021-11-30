@@ -9,19 +9,19 @@ export const todoReducer = (state = initialState, action: TodoAction): TodoState
     case TodoActionsTypes.ADD_TODO: {
       return {
         ...state,
-        todos: [...state.todos, { id: Date.now(), name: action.text, checked: action.checked }]
+        todos: [...state.todos, action.payload]
       }
     }
     case TodoActionsTypes.DELETE_TODO: {
       return {
         ...state,
-        todos: [...state.todos.filter(todo => todo.id !== action.id)]
+        todos: [...state.todos.filter(todo => todo.id !== action.payload)]
       }
     }
     case TodoActionsTypes.TOGGLE_TODO: {
       const newTodos = [...state.todos];
       newTodos.map(todo => {
-        if (todo.id === action.id) {
+        if (todo.id === action.payload) {
           todo.checked = !todo.checked
         }
       })

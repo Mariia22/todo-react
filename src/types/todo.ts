@@ -1,3 +1,4 @@
+
 export interface TodoType {
   id: number
   name: string
@@ -14,16 +15,15 @@ export enum TodoActionsTypes {
 }
 interface AddTodoAction {
   type: TodoActionsTypes.ADD_TODO;
-  text: string;
-  checked: boolean
+  payload: TodoType
 }
 interface DeleteTodoAction {
   type: TodoActionsTypes.DELETE_TODO;
-  id: number
+  payload: number
 }
 interface ToggleTodoAction {
   type: TodoActionsTypes.TOGGLE_TODO;
-  id: number
+  payload: number
 }
 interface ClearAllTodoAction {
   type: TodoActionsTypes.CLEAR_ALL
