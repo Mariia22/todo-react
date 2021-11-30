@@ -1,13 +1,7 @@
 @import './../../styles/variables.scss';
 
-.main{
-  background-color: var(--background-color);
-  position:relative;
-}
 .form{
-  position:absolute;
-  top: 0;
-  left: 0;
+  position:relative;
   width: 40%;
 }
 .formCheckbox{

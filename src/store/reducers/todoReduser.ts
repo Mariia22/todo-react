@@ -1,7 +1,7 @@
 import { TodoState, TodoAction, TodoActionsTypes } from './../../types/todo'
 
 const initialState: TodoState = {
-  todos: []
+  todos: [{id: 578697589, text: "fhjfhjkgh", checked: false}]
 }
 
 export const todoReducer = (state = initialState, action: TodoAction): TodoState => {

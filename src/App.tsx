@@ -1,6 +1,6 @@
 import style from './App.module.scss';
 import { ThemeProvider } from './hooks/Theme.context'
-import { Main } from './components/Main/Main'
+import { TodoList } from './components/TodoList/TodoList'
 import { Header } from './components/Header/Header'
 import { Footer } from './components/Footer/Footer'
 
@@ -9,8 +9,8 @@ function App() {
     <ThemeProvider>
       <div className={style.app_content}>
         <Header />
-        <Main />
-        <Footer/>
+        <TodoList />
+        <Footer />
       </div>
     </ThemeProvider>
   );
