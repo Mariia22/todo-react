@@ -4,16 +4,35 @@ input[type=checkbox]{
   display: none; 
 }
 .todo{
+  position: relative;
   width: 100%;
   height: 40px;
   color: $very-dark-grayish-blue;
   border-bottom: 1px solid $very-dark-grayish-blue;
-  font-size: 0.7em;
+  font-size: .7rem;
+  padding-left: 1.3rem;
+  padding-top: .9rem;
 }
-
 .todoCheckBox{
   height: 15px;
   width: 15px;
   border-radius: 50%;
   border: 1px solid $very-dark-grayish-blue;
+}
+.todoText{
+  margin: 0;
+  padding-left: 1.8rem;
+}
+.todoCheckBox{
+  position:absolute;
+  top: 10px;
+  left: 19px;  
+  display: block;
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  border:1px solid $very-dark-grayish-blue;
+}
+.todo_item-done label {
+  background: url("../../images/icon-check.svg") no-repeat center, linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%)) ;
 }

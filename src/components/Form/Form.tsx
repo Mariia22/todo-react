@@ -14,6 +14,7 @@ export const FormComponent: React.FC = () => {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     AddTodoAction(value);
+    setValue('');
   }
 
   return (
