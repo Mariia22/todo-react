@@ -6,8 +6,58 @@
   display: flex;
   flex-direction: column;
   margin-top: -35px;
+  margin-bottom: 0;
   padding:0;
   list-style: none;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+}
+.todo_total{
+  background-color: var(--list);
+  display: flex;   
+  justify-content: space-between;
+  width: 40%; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-bottom: 3rem;
+  padding: 1rem;
+}
+.todo_total_items{
+  float:left; 
+  font-size: 0.7rem;
+  width: 50%; 
+  order: 1;  
+  margin: 0;
+  padding: 0;  
+}
+.todo_total_completed{
+  float: right; 
+  width: 50%;
+  text-align: right;
+  cursor: pointer;
+  font-size: 0.7rem;
+  order: 3;
+  margin: 0;
+  padding: 0;
+}
+.todo_total_sort{
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: bold;
+  order: 2;
+  margin: 0;
+  padding: 0;
+}
+.todo_total_sort button{
+font-family: "Josefin Sans", sans-serif;
+font-size: 0.7rem;
+color: $very-dark-grayish-blue;
+border: none;
+outline: none;
+background-color: transparent;
+}
+button .todo_total_sort_active{
+  color: $bright-blue;
 }

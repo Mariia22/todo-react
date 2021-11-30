@@ -7,7 +7,6 @@ import { TodoType } from '../../types/todo';
 
 export const FormComponent: React.FC = () => {
   const { theme } = useTheme();
-  const { todos } = useTypedSelector(state => state.todo);
   const { AddTodoAction } = useActions();
   const [value, setValue] = useState<TodoType['text']>('');
 

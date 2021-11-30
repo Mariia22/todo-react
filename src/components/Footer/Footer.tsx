@@ -6,8 +6,8 @@ export const Footer: React.FC = () => {
   const { theme } = useTheme();
   return (
     <div style={{ ...theme } as React.CSSProperties} className={style.footer}>
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-      Coded by <a href="https://github.com/Mariia22">Maria Ushakova</a>
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/Mariia22" target="_blank" rel="noreferrer">Maria Ushakova</a>
     </div>
   )
 }

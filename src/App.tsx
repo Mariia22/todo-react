@@ -15,6 +15,7 @@ function App() {
           <div style={{ ...theme } as React.CSSProperties} className={style.app_main}>
             <TodoList />
           </div>
+          <p className={style.app_paragraph}> Drag and drop to reorder list</p>
         </div>
         <Footer />
       </div>
