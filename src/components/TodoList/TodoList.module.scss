@@ -14,8 +14,9 @@
 }
 .todo_total{
   background-color: var(--list);
-  display: flex;   
-  justify-content: space-between;
+  display: grid;
+  grid-template: 1fr/ 1fr 1fr 1fr;
+  grid-template-areas: 'item sort completed';   
   width: 40%; 
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -23,32 +24,23 @@
   padding: 1rem;
 }
 .todo_total_items{
-  float:left; 
+  grid-area: item;
   font-size: 0.7rem;
-  width: 50%; 
-  order: 1;  
-  margin: 0;
-  padding: 0;  
 }
 .todo_total_completed{
-  float: right; 
-  width: 50%;
+  grid-area: completed;
   text-align: right;
   cursor: pointer;
   font-size: 0.7rem;
-  order: 3;
-  margin: 0;
-  padding: 0;
 }
 .todo_total_sort{
+  grid-area: sort;
   display: flex;
   justify-content: space-around;
   cursor: pointer;
   font-size: 0.7rem;
   font-weight: bold;
-  order: 2;
-  margin: 0;
-  padding: 0;
+  padding: 0 .8rem;
 }
 .todo_total_sort button{
 font-family: "Josefin Sans", sans-serif;
