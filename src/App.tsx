@@ -4,19 +4,20 @@ import { TodoList } from './components/TodoList/TodoList';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
 import { useTheme } from './hooks/Theme.context';
+import { Wrapper } from './components/Wrapper/Wrapper';
 
 function App() {
   const { theme } = useTheme();
   return (
     <ThemeProvider>
       <div className={style.app_wrapper}>
-        <div style={{ ...theme } as React.CSSProperties} className={style.app_content}>
+        <Wrapper >
           <Header />
-          <div style={{ ...theme } as React.CSSProperties} className={style.app_main}>
+          <div className={style.app_main}>
             <TodoList />
           </div>
           <p className={style.app_paragraph}> Drag and drop to reorder list</p>
-        </div>
+        </Wrapper>
         <Footer />
       </div>
     </ThemeProvider>

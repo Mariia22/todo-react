@@ -16,7 +16,8 @@
   background-color: var(--list);
   display: grid;
   grid-template: 1fr/ 1fr 1fr 1fr;
-  grid-template-areas: 'item sort completed';   
+  grid-template-areas: 'item sort completed'; 
+  align-items: center;  
   width: 40%; 
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -26,12 +27,14 @@
 .todo_total_items{
   grid-area: item;
   font-size: 0.7rem;
+  color: $very-dark-grayish-blue;
 }
 .todo_total_completed{
   grid-area: completed;
   text-align: right;
   cursor: pointer;
   font-size: 0.7rem;
+  color: $very-dark-grayish-blue;
 }
 .todo_total_sort{
   grid-area: sort;
@@ -49,7 +52,4 @@ color: $very-dark-grayish-blue;
 border: none;
 outline: none;
 background-color: transparent;
-}
-button .todo_total_sort_active{
-  color: $bright-blue;
 }
