@@ -1,10 +1,6 @@
 @import './../../styles/variables.scss';
 
-input[type=checkbox]{  
-  display: none; 
-}
 .todo{
-  position: relative;
   width: 100%;
   height: 40px;
   color: $very-dark-grayish-blue;
@@ -13,27 +9,29 @@ input[type=checkbox]{
   padding-left: 1.3rem;
 }
 .todoCheckBox{
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  border: 1px solid $very-dark-grayish-blue;
-}
-.todoText{
-  padding-left: 1.8rem;
-  padding-top: .3rem;
-  color: var(--font);
-}
-.todoCheckBox{
-  position:absolute;
-  top: 10px;
-  left: 19px;  
+  position: relative;
   display: flex;
-  align-items: center;
+  text-align: center;
+}
+.todoInput{
+  appearance: none;
+}
+.todoInput::before{
+  position:absolute;
+  content: '';
+  display: block;
+  top: 10px;
+  left: 0;  
   height: 17px;
   width: 17px;
   border-radius: 50%;
   border:1px solid $very-dark-grayish-blue;
 }
-.todo_item-done label {
+.todoText{
+  padding-left: 1.9rem;
+  padding-top: .9rem;
+  color: var(--font);
+}
+.todoInput:checked::before {
   background: url("../../images/icon-check.svg") no-repeat center, linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%)) ;
 }
