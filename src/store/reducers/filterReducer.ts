@@ -1,6 +1,6 @@
-import { Filters, TodoAction, TodoActionsTypes } from './../../types/todo';
+import { TodoAction, TodoActionsTypes, FilterConst } from './../../types/todo';
 
-const initialState:Filters = Filters.ALL;
+const initialState = FilterConst.ALL
 export const filterReducer = (state = initialState, action: TodoAction): any => {
   switch (action.type) {
     case TodoActionsTypes.SET_FILTER: {

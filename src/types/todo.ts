@@ -6,11 +6,15 @@ export interface TodoType {
 export interface TodoState {
   todos: Array<TodoType>
 }
-export enum Filters {
-  ALL = 'ALL',
-  COMPLETED = 'COMPLETED',
-  ACTIVE = 'ACTIVE'
-}
+export const FilterConst: any
+  = {
+  ALL: 'ALL',
+  COMPLETED: 'COMPLETED',
+  ACTIVE: 'ACTIVE'
+};
+/*export interface FilterType {
+ filter: string
+}*/
 export enum TodoActionsTypes {
   ADD_TODO = 'ADD_TODO',
   TOGGLE_TODO = 'TOGGLE_TODO',
@@ -30,7 +34,7 @@ interface ClearAllCompletedTodoAction {
 }
 interface FilterAction {
   type: TodoActionsTypes.SET_FILTER;
-  payload: Filters
+  payload: string
 }
 
 export type TodoAction = AddTodoAction | ToggleTodoAction | ClearAllCompletedTodoAction | FilterAction;

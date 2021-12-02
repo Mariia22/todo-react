@@ -1,4 +1,4 @@
-import { TodoState, TodoAction, TodoActionsTypes } from './../../types/todo'
+import { TodoState, TodoAction, TodoActionsTypes, FilterConst } from './../../types/todo'
 
 const initialState: TodoState = {
   todos: [{ id: 578697589, text: "Task 1 ", checked: false }, { id: 578697590, text: "Task 2", checked: true }],

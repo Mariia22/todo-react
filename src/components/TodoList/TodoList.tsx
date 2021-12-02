@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTheme } from '../../hooks/Theme.context';
 import style from './TodoList.module.scss';
+import { useSelector } from 'react-redux';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { Todo } from '../../components/Todo/Todo';
 import { useActions } from '../../hooks/useActions';
 import { getTodoByFilter } from './../../store/reducers/todoSelectors'
-import { Filters } from '../../types/todo';
+import { FilterConst, TodoState, TodoType } from '../../types/todo';
 import { Filter } from '../Filter/Filter';
 
 export const TodoList: React.FC = () => {
   const { theme } = useTheme();
   const { todos } = useTypedSelector(state => state.todo);
-  const { filter } = useTypedSelector(state => state.filter);
-  const { ClearAllTodoAction, FilterTodoAction } = useActions();
+  const { ClearAllTodoAction } = useActions();
+  const state = useSelector(state => state);
 
+  getTodoByFilter(todos, 'ALL');
   function deleteAllCompletedTodo() {
     ClearAllTodoAction();
   }
+
   return (
     < >
       <ul style={{ ...theme } as React.CSSProperties} className={style.list}>
@@ -26,9 +29,9 @@ export const TodoList: React.FC = () => {
         <div className={style.todo_total_items}>{todos.length} items left</div>
         <div className={style.todo_total_completed} onClick={deleteAllCompletedTodo}>Clear Completed</div>
         <div className={style.todo_total_sort}>
-          <Filter activeProperty={true} name={'All'} />
-          <Filter activeProperty={false} name={'Active'} />
-          <Filter activeProperty={false} name={'Completed'} />
+          <Filter activeProperty={true} name={'All'} value={'ALL'} onClick={() => { getTodoByFilter(todos, 'ALL') }} />
+          <Filter activeProperty={false} name={'Active'} value={'ACTIVE'} onClick={() => { getTodoByFilter(todos, 'ACTIVE') }} />
+          <Filter activeProperty={false} name={'Completed'} value={'COMPLETED'} onClick={() => { getTodoByFilter(todos, 'COMPLETED') }} />
         </div>
       </div>
     </>

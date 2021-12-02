@@ -7,14 +7,14 @@ interface Props {
   id: number
   checked: boolean,
   text: string,
-  draggable: boolean
+  draggable: boolean,
 }
 export const Todo: React.FC<Props> = ({ id, checked, text, draggable }) => {
   const { theme } = useTheme();
   const { ToggleTodoAction } = useActions();
 
-  function handleChangeCheckbox(e: ChangeEvent<HTMLInputElement>) {
-    ToggleTodoAction(Number(e.target.value));
+  function handleChangeCheckbox(event: ChangeEvent<HTMLInputElement>) {
+    ToggleTodoAction(Number(event.target.value));
   }
 
   return (

@@ -3,8 +3,8 @@ import { combineReducers } from 'redux';
 import { todoReducer } from './todoReduser'
 
 export const rootReducer = combineReducers({
+  filter: filterReducer,
   todo: todoReducer,
-  filter: filterReducer
 })
 
 export type RootState = ReturnType<typeof rootReducer>

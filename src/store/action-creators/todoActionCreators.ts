@@ -1,4 +1,4 @@
-import { TodoAction, TodoActionsTypes, Filters } from './../../types/todo';
+import { TodoAction, TodoActionsTypes } from './../../types/todo';
 import { TodoType } from "../../types/todo";
 
 export function AddTodoAction(text: TodoType['text']): TodoAction {
@@ -10,12 +10,6 @@ export function ToggleTodoAction(id: number): TodoAction {
 export function ClearAllTodoAction(): TodoAction {
   return { type: TodoActionsTypes.CLEAR_ALL_COMPLETED };
 }
-export function FilterTodoAction(filter:Filters): TodoAction {
+export function FilterTodoAction(filter: any): TodoAction {
   return { type: TodoActionsTypes.SET_FILTER, payload: filter };
 }
-/*export function FilterActiveTodoAction(): TodoAction {
-  return { type: TodoActionsTypes.FILTER_ACTIVE };
-}
-export function FilterCompletedTodoAction(): TodoAction {
-  return { type: TodoActionsTypes.FILTER_COMPLETED };
-}*/
