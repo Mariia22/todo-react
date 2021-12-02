@@ -21,3 +21,8 @@ export const Filter: React.VFC<Props> = ({ name, activeProperty, value }) => {
 }
 
 
+/*
+          <Filter activeProperty={true} name={'All'} value={'ALL'} />
+          <Filter activeProperty={false} name={'Active'} value={'ACTIVE'} />
+          <Filter activeProperty={false} name={'Completed'} value={'COMPLETED'} />
+          */

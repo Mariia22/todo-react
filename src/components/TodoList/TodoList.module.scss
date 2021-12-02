@@ -16,7 +16,6 @@
   width: 100%;
   height: 40px;
   color: $very-dark-grayish-blue;
-  border-bottom: 1px solid $very-dark-grayish-blue;
   font-size: .7rem;
   padding-left: 1.3rem;
   cursor:grab;
@@ -31,6 +30,7 @@
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   margin-bottom: 3rem;
+  padding-top: 3rem;
   padding: 1rem;
 }
 .todo_total_items{
@@ -53,4 +53,16 @@
   font-weight: bold;
   padding: 0 .8rem;
 }
-
+.todo_total_sort_item{
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.7rem;
+  color: $very-dark-grayish-blue;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  }
+  .todo_total_sort_item_active{
+    @extend .todo_total_sort_item;
+    color: $bright-blue;
+  }
