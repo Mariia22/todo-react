@@ -1,15 +1,16 @@
 import React, { ChangeEvent } from 'react';
-import { useTheme } from '../../hooks/Theme.context';
 import { useActions } from '../../hooks/useActions';
 import style from './Todo.module.scss';
+import { Draggable } from 'react-beautiful-dnd';
+import { useTheme } from '../../hooks/Theme.context';
 
 interface Props {
   id: number
   checked: boolean,
   text: string,
-  draggable: boolean,
+  index: number
 }
-export const Todo: React.FC<Props> = ({ id, checked, text, draggable }) => {
+export const Todo: React.FC<Props> = ({ checked, text, id, index }) => {
   const { theme } = useTheme();
   const { ToggleTodoAction } = useActions();
 
@@ -18,13 +19,14 @@ export const Todo: React.FC<Props> = ({ id, checked, text, draggable }) => {
   }
 
   return (
-    <li style={{ ...theme } as React.CSSProperties} className={style.todo} draggable={true}>
-      <label className={style.todoCheckBox}>
-        <input className={style.todoInput} checked={checked} type='checkbox' onChange={handleChangeCheckbox} value={id} />
-        <span className={style.todoText}>{text}</span>
-      </label>
-
-    </li>
+    <Draggable draggableId={'1'} index={index}>
+      {provided => (
+        <label className={style.todoCheckBox} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+          <input className={style.todoInput} checked={checked} type='checkbox' onChange={handleChangeCheckbox} value={id} />
+          <span className={style.todoText}>{text}</span>
+        </label>
+      )}
+    </Draggable>
   )
 }
 

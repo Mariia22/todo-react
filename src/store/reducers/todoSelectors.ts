@@ -1,7 +1,7 @@
 import { TodoType } from './../../types/todo';
 import { FilterConst } from "../../types/todo";
 
-export const getTodoByFilter = (array: Array<TodoType>, filterParam: string): Array<TodoType> => {
+/*export const getTodoByFilter = (array: Array<TodoType>, filterParam: string): Array<TodoType> => {
   switch (filterParam) {
     case 'ALL':
       return array
@@ -11,4 +11,4 @@ export const getTodoByFilter = (array: Array<TodoType>, filterParam: string): Ar
       return array.filter((todo: any) => !todo.checked)
     default: return array
   }
-}
+}*/

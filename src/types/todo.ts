@@ -1,20 +1,17 @@
 export interface TodoType {
-  id: number
-  text: string
+  id: number,
+  order: number,
+  text: string,
   checked: boolean
 }
 export interface TodoState {
   todos: Array<TodoType>
 }
-export const FilterConst: any
-  = {
+export const FilterConst: any= {
   ALL: 'ALL',
   COMPLETED: 'COMPLETED',
   ACTIVE: 'ACTIVE'
 };
-/*export interface FilterType {
- filter: string
-}*/
 export enum TodoActionsTypes {
   ADD_TODO = 'ADD_TODO',
   TOGGLE_TODO = 'TOGGLE_TODO',
