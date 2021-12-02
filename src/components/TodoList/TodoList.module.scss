@@ -44,16 +44,4 @@
   font-weight: bold;
   padding: 0 .8rem;
 }
-.todo_total_sort_item{
-font-family: "Josefin Sans", sans-serif;
-font-size: 0.7rem;
-color: $very-dark-grayish-blue;
-border: none;
-outline: none;
-background-color: transparent;
-cursor: pointer;
-}
-.todo_total_sort_item_active{
-  @extend .todo_total_sort_item;
-  color: $bright-blue;
-}
+

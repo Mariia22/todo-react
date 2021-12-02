@@ -4,16 +4,18 @@ export interface TodoType {
   checked: boolean
 }
 export interface TodoState {
-  todos: Array<TodoType>,
-  filter: Array<TodoType>
+  todos: Array<TodoType>
+}
+export enum Filters {
+  ALL = 'ALL',
+  COMPLETED = 'COMPLETED',
+  ACTIVE = 'ACTIVE'
 }
 export enum TodoActionsTypes {
   ADD_TODO = 'ADD_TODO',
   TOGGLE_TODO = 'TOGGLE_TODO',
   CLEAR_ALL_COMPLETED = 'CLEAR_All_COMPLETED',
-  FILTER_ALL = 'FILTER_ALL',
-  FILTER_ACTIVE = 'FILTER_ACTIVE',
-  FILTER_COMPLETED = 'FILTER_COMPLETED'
+  SET_FILTER = 'SET_FILTER',
 }
 interface AddTodoAction {
   type: TodoActionsTypes.ADD_TODO;
@@ -26,13 +28,9 @@ interface ToggleTodoAction {
 interface ClearAllCompletedTodoAction {
   type: TodoActionsTypes.CLEAR_ALL_COMPLETED;
 }
-interface FilterAllAction {
-  type: TodoActionsTypes.FILTER_ALL;
+interface FilterAction {
+  type: TodoActionsTypes.SET_FILTER;
+  payload: Filters
 }
-interface FilterActiveAction {
-  type: TodoActionsTypes.FILTER_ACTIVE;
-}
-interface FilterCompletedAction {
-  type: TodoActionsTypes.FILTER_COMPLETED;
-}
-export type TodoAction = AddTodoAction | ToggleTodoAction | ClearAllCompletedTodoAction | FilterAllAction | FilterActiveAction | FilterCompletedAction;
+
+export type TodoAction = AddTodoAction | ToggleTodoAction | ClearAllCompletedTodoAction | FilterAction;

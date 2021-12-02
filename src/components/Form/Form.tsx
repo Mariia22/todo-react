@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useTheme } from '../../hooks/Theme.context';
 import style from './Form.module.scss';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useActions } from '../../hooks/useActions';
 import { TodoType } from '../../types/todo';
 

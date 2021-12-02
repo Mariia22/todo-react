@@ -2,7 +2,6 @@ import { TodoState, TodoAction, TodoActionsTypes } from './../../types/todo'
 
 const initialState: TodoState = {
   todos: [{ id: 578697589, text: "Task 1 ", checked: false }, { id: 578697590, text: "Task 2", checked: true }],
-  filter: []
 }
 
 export const todoReducer = (state = initialState, action: TodoAction): TodoState => {
@@ -29,24 +28,6 @@ export const todoReducer = (state = initialState, action: TodoAction): TodoState
       return {
         ...state,
         todos: [...state.todos.filter(todo => todo.checked === false)],
-      }
-    }
-    case TodoActionsTypes.FILTER_ALL: {
-      return {
-        ...state,
-        todos: [...state.todos]
-      }
-    }
-    case TodoActionsTypes.FILTER_ACTIVE: {
-      return {
-        ...state,
-        filter: [...state.todos.filter(todo => todo.checked === false)],
-      }
-    }
-    case TodoActionsTypes.FILTER_COMPLETED: {
-      return {
-        ...state,
-        filter: [...state.todos.filter(todo => todo.checked === true)],
       }
     }
     default: { return state }
