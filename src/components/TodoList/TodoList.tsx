@@ -1,6 +1,6 @@
 import React, { MouseEventHandler, SyntheticEvent, useState } from 'react';
 import { useTheme } from '../../hooks/Theme.context';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable, Draggable, OnDragEndResponder, DraggableProvided, DropResult } from 'react-beautiful-dnd';
 import style from './TodoList.module.scss';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { Todo } from '../../components/Todo/Todo';
@@ -8,13 +8,14 @@ import { useActions } from '../../hooks/useActions';
 //import { getTodoByFilter } from './../../store/reducers/todoSelectors'
 import { FilterConst, TodoState, TodoType } from '../../types/todo';
 import { Filter } from '../Filter/Filter';
+import { ObjectType, ObjectTypeDeclaration } from 'typescript';
 
 
 export const TodoList: React.FC = () => {
   const { theme } = useTheme();
   const { todos } = useTypedSelector(state => state.todoList);
-  const { ClearAllTodoAction } = useActions();
-  const [items, setItems] = useState<Array<TodoType>>(todos);
+  const { ClearAllTodoAction, DragEndAction } = useActions();
+  //const [items, setItems] = useState<Array<TodoType>>(todos);
   //TODO: change class button after press
   //const className = active === false ? style.todo_total_sort_item : style.todo_total_sort_item_active
 
@@ -25,7 +26,7 @@ export const TodoList: React.FC = () => {
   //TODO: add filter reducer 
   function setFilter(e: React.MouseEvent<HTMLButtonElement>) {
     const newItems = getTodoByFilter(todos, String(e.currentTarget.value))
-    setItems(newItems)
+    //setItems(newItems)
   }
 
   const getTodoByFilter = (array: Array<TodoType>, filterParam: string): Array<TodoType> => {
@@ -39,15 +40,9 @@ export const TodoList: React.FC = () => {
       default: return array
     }
   }
-
-  //TODO add reducer to update state after drag\drop
-  const onDragEnd = (result: any) => {
-    const { destination, source, draggableId } = result;
+  const onDragEnd = ({ destination, source }: DropResult) => {
     if (!destination) return;
-    const newItems = Array.from(items);
-    const [removed] = newItems.splice(source.index, 1);
-    newItems.splice(destination.index, 0, removed);
-    setItems(newItems)
+    DragEndAction([source.index, destination.index]);
   }
   return (
     < >

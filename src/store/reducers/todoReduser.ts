@@ -31,6 +31,15 @@ export const todoReducer = (state = initialState, action: TodoAction): TodoState
         todos: [...state.todos.filter(todo => todo.checked === false)],
       }
     }
+    case TodoActionsTypes.DRAG_TODO: {
+      const newTodos = [...state.todos];
+      const removed = newTodos.splice(action.payload[0], 1);
+      newTodos.splice(action.payload[1], 0, ...removed);
+      return {
+        ...state,
+        todos: [...newTodos]
+      }
+    }
     default: { return state }
   }
 }

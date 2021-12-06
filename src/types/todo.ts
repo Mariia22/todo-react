@@ -16,6 +16,7 @@ export enum TodoActionsTypes {
   TOGGLE_TODO = 'TOGGLE_TODO',
   CLEAR_ALL_COMPLETED = 'CLEAR_All_COMPLETED',
   SET_FILTER = 'SET_FILTER',
+  DRAG_TODO = 'DRAG_TODO',
 }
 interface AddTodoAction {
   type: TodoActionsTypes.ADD_TODO;
@@ -32,5 +33,9 @@ interface FilterAction {
   type: TodoActionsTypes.SET_FILTER;
   payload: string
 }
+interface DragEndAction {
+  type: TodoActionsTypes.DRAG_TODO;
+  payload: Array<number>
+}
 
-export type TodoAction = AddTodoAction | ToggleTodoAction | ClearAllCompletedTodoAction | FilterAction;
+export type TodoAction = AddTodoAction | ToggleTodoAction | ClearAllCompletedTodoAction | FilterAction | DragEndAction;

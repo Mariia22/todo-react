@@ -13,3 +13,6 @@ export function ClearAllTodoAction(): TodoAction {
 export function FilterTodoAction(filter: any): TodoAction {
   return { type: TodoActionsTypes.SET_FILTER, payload: filter };
 }
+export function DragEndAction(index: Array<number>): TodoAction {
+  return { type: TodoActionsTypes.DRAG_TODO, payload: index }
+}
