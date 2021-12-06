@@ -1,6 +1,6 @@
-import React, { MouseEventHandler, SyntheticEvent, useState } from 'react';
+import React from 'react';
 import { useTheme } from '../../hooks/Theme.context';
-import { DragDropContext, Droppable, Draggable, OnDragEndResponder, DraggableProvided, DropResult } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
 import style from './TodoList.module.scss';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { Todo } from '../../components/Todo/Todo';
@@ -8,37 +8,20 @@ import { useActions } from '../../hooks/useActions';
 //import { getTodoByFilter } from './../../store/reducers/todoSelectors'
 import { FilterConst, TodoState, TodoType } from '../../types/todo';
 import { Filter } from '../Filter/Filter';
-import { ObjectType, ObjectTypeDeclaration } from 'typescript';
-
 
 export const TodoList: React.FC = () => {
   const { theme } = useTheme();
   const { todos } = useTypedSelector(state => state.todoList);
   const { ClearAllTodoAction, DragEndAction } = useActions();
-  //const [items, setItems] = useState<Array<TodoType>>(todos);
   //TODO: change class button after press
   //const className = active === false ? style.todo_total_sort_item : style.todo_total_sort_item_active
 
   function deleteAllCompletedTodo() {
     ClearAllTodoAction();
   }
-
   //TODO: add filter reducer 
   function setFilter(e: React.MouseEvent<HTMLButtonElement>) {
-    const newItems = getTodoByFilter(todos, String(e.currentTarget.value))
-    //setItems(newItems)
-  }
 
-  const getTodoByFilter = (array: Array<TodoType>, filterParam: string): Array<TodoType> => {
-    switch (filterParam) {
-      case 'ALL':
-        return array
-      case 'COMPLETED':
-        return array.filter((todo: any) => todo.checked)
-      case 'ACTIVE':
-        return array.filter((todo: any) => !todo.checked)
-      default: return array
-    }
   }
   const onDragEnd = ({ destination, source }: DropResult) => {
     if (!destination) return;

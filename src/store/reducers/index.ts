@@ -1,4 +1,3 @@
-import { TodoList } from './../../components/TodoList/TodoList';
 import { filterReducer } from './filterReducer';
 import { combineReducers } from 'redux';
 import { todoReducer } from './todoReduser'

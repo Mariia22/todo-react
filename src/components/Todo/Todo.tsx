@@ -1,7 +1,6 @@
 import React, { ChangeEvent } from 'react';
 import { useActions } from '../../hooks/useActions';
 import style from './Todo.module.scss';
-import { useTheme } from '../../hooks/Theme.context';
 
 interface Props {
   id: number
@@ -9,7 +8,6 @@ interface Props {
   text: string,
 }
 export const Todo: React.FC<Props> = ({ checked, text, id }) => {
-  const { theme } = useTheme();
   const { ToggleTodoAction } = useActions();
 
   function handleChangeCheckbox(event: ChangeEvent<HTMLInputElement>) {

@@ -3,11 +3,9 @@ import { ThemeProvider } from './hooks/Theme.context';
 import { TodoList } from './components/TodoList/TodoList';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
-import { useTheme } from './hooks/Theme.context';
 import { Wrapper } from './components/Wrapper/Wrapper';
 
 function App() {
-  const { theme } = useTheme();
   return (
     <ThemeProvider>
       <div className={style.app_wrapper}>
