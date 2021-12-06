@@ -1,13 +1,12 @@
 export interface TodoType {
   id: number,
-  order: number,
   text: string,
   checked: boolean
 }
 export interface TodoState {
   todos: Array<TodoType>
 }
-export const FilterConst: any= {
+export const FilterConst: any = {
   ALL: 'ALL',
   COMPLETED: 'COMPLETED',
   ACTIVE: 'ACTIVE'
