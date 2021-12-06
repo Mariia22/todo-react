@@ -1,4 +1,3 @@
-import { TodoState } from './../types/todo';
 export const loadState = () => {
   try {
     let serializedState = localStorage.getItem('store');
@@ -12,9 +11,9 @@ export const loadState = () => {
   }
 };
 
-export const saveState = (todo: TodoState) => {
+export const saveState = (state: any): void => {
   try {
-    let serializedState = JSON.stringify(todo)
+    let serializedState = JSON.stringify(state)
     localStorage.setItem('store', serializedState)
   }
   catch (err) {

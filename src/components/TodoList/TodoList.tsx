@@ -13,7 +13,8 @@ import { Filter } from '../Filter/Filter';
 
 export const TodoList: React.FC = () => {
   const { theme } = useTheme();
-  const { todos } = useTypedSelector(state => state.todos);
+  const { todos } = useTypedSelector(state => state.todoList);
+  console.log(todos);
   const { ClearAllTodoAction } = useActions();
   const [items, setItems] = useState<Array<TodoType>>(todos);
   //TODO: change class button after press
