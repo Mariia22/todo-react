@@ -20,6 +20,10 @@
   padding-left: 1.3rem;
   cursor:grab;
 }
+.todoSelected{
+  @extend .todo;
+  background-color: $light-grayish-blue;
+}
 .todo_total{
   background-color: var(--list);
   display: grid;
@@ -32,6 +36,7 @@
   margin-bottom: 3rem;
   padding-top: 3rem;
   padding: 1rem;
+  border-top: 1px solid $very-dark-grayish-blue;
 }
 .todo_total_items{
   grid-area: item;

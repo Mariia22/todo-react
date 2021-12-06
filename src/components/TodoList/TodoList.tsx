@@ -2,7 +2,6 @@ import React, { MouseEventHandler, SyntheticEvent, useState } from 'react';
 import { useTheme } from '../../hooks/Theme.context';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import style from './TodoList.module.scss';
-import { useSelector } from 'react-redux';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { Todo } from '../../components/Todo/Todo';
 import { useActions } from '../../hooks/useActions';
@@ -14,7 +13,6 @@ import { Filter } from '../Filter/Filter';
 export const TodoList: React.FC = () => {
   const { theme } = useTheme();
   const { todos } = useTypedSelector(state => state.todoList);
-  console.log(todos);
   const { ClearAllTodoAction } = useActions();
   const [items, setItems] = useState<Array<TodoType>>(todos);
   //TODO: change class button after press
@@ -44,15 +42,17 @@ export const TodoList: React.FC = () => {
 
   //TODO add reducer to update state after drag\drop
   const onDragEnd = (result: any) => {
+    const { destination, source, draggableId } = result;
+    if (!destination) return;
     const newItems = Array.from(items);
-    const [removed] = newItems.splice(result.source.index, 1);
-    newItems.splice(result.destination.index, 0, removed);
+    const [removed] = newItems.splice(source.index, 1);
+    newItems.splice(destination.index, 0, removed);
     setItems(newItems)
   }
   return (
     < >
       <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId="droppable" >
+        <Droppable droppableId="todos" >
           {(provided) => (
             <ul
               {...provided.droppableProps}
@@ -61,12 +61,13 @@ export const TodoList: React.FC = () => {
             >
               {todos.map((todo, index) => (
                 <Draggable key={todo.id} index={index} draggableId={String(todo.id)}>
-                  {(provided) => (
+                  {(provided, snapshot) => (
                     <li
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
-                      className={style.todo}
+                      className={snapshot.isDragging ? style.todoSelected : style.todo}
+                      key={todo.id}
                     >
                       <Todo checked={todo.checked} text={todo.text} id={todo.id} />
                     </li>
