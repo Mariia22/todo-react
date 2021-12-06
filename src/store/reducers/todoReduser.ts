@@ -4,7 +4,7 @@ const initialState: TodoState = {
   todos: [{ id: 578697589, text: "Task 1 ", checked: false }, { id: 578697590, text: "Task 2", checked: true }],
 }
 
-export const todoReducer = (state = initialState, action: TodoAction): TodoState => {
+export const todos = (state = initialState, action: TodoAction): TodoState => {
   switch (action.type) {
     case TodoActionsTypes.ADD_TODO: {
       return {

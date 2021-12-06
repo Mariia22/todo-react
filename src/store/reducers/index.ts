@@ -1,10 +1,10 @@
 import { filterReducer } from './filterReducer';
 import { combineReducers } from 'redux';
-import { todoReducer } from './todoReduser'
+import { todos } from './todoReduser'
 
 export const rootReducer = combineReducers({
   filter: filterReducer,
-  todo: todoReducer,
+  todos,
 })
 
 export type RootState = ReturnType<typeof rootReducer>
