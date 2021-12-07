@@ -1,28 +1,23 @@
 import React from 'react';
 import { useActions } from '../../hooks/useActions';
-//import { getTodoByFilter } from './../../store/reducers/todoSelectors'
 import style from './Filter.module.scss';
 
 interface Props {
-  activeProperty: boolean
   name: string
-  value: any
+  value: string
+  currentFilter: string
 }
-export const Filter: React.VFC<Props> = ({ name, activeProperty, value }) => {
+export const Filter: React.VFC<Props> = ({ name, value, currentFilter }) => {
   const { FilterTodoAction } = useActions();
-  function setFilter(event: any) {
-    FilterTodoAction(event.target.value)
+
+  function setFilter(event: React.MouseEvent<HTMLButtonElement>) {
+    FilterTodoAction(event.currentTarget.value)
+  }
+
+  if (value === currentFilter) {
+    return <button disabled className={style.todo_total_sort_item_active}>{name}</button>
   }
   return (
-    <button className={`${activeProperty === false ? style.todo_total_sort_item : style.todo_total_sort_item_active}`} value={value} onClick={setFilter}>
-      {name}
-    </button>
+    <button className={style.todo_total_sort_item} value={value} onClick={setFilter}>{name}</button>
   )
 }
-
-
-/*
-          <Filter activeProperty={true} name={'All'} value={'ALL'} />
-          <Filter activeProperty={false} name={'Active'} value={'ACTIVE'} />
-          <Filter activeProperty={false} name={'Completed'} value={'COMPLETED'} />
-          */

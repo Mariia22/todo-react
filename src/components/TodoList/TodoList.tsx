@@ -1,32 +1,30 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useTheme } from '../../hooks/Theme.context';
 import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
 import style from './TodoList.module.scss';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { Todo } from '../../components/Todo/Todo';
 import { useActions } from '../../hooks/useActions';
-//import { getTodoByFilter } from './../../store/reducers/todoSelectors'
-import { FilterConst, TodoState, TodoType } from '../../types/todo';
+import { selectTodo } from './../../store/reducers/todoSelectors'
 import { Filter } from '../Filter/Filter';
 
 export const TodoList: React.FC = () => {
   const { theme } = useTheme();
   const { todos } = useTypedSelector(state => state.todoList);
+  const filter = useTypedSelector(state => state.filter);
   const { ClearAllTodoAction, DragEndAction } = useActions();
-  //TODO: change class button after press
-  //const className = active === false ? style.todo_total_sort_item : style.todo_total_sort_item_active
 
-  function deleteAllCompletedTodo() {
+  const deleteAllCompletedTodo = () => {
     ClearAllTodoAction();
-  }
-  //TODO: add filter reducer 
-  function setFilter(e: React.MouseEvent<HTMLButtonElement>) {
-
   }
   const onDragEnd = ({ destination, source }: DropResult) => {
     if (!destination) return;
     DragEndAction([source.index, destination.index]);
   }
+  const visibileFilter = useMemo(() => {
+    return selectTodo(todos, filter)
+  }, [todos, filter]);
+
   return (
     < >
       <DragDropContext onDragEnd={onDragEnd}>
@@ -37,7 +35,7 @@ export const TodoList: React.FC = () => {
               ref={provided.innerRef}
               style={{ ...theme } as React.CSSProperties} className={style.list}
             >
-              {todos.map((todo, index) => (
+              {visibileFilter.map((todo, index) => (
                 <Draggable key={todo.id} index={index} draggableId={String(todo.id)}>
                   {(provided, snapshot) => (
                     <li
@@ -61,12 +59,9 @@ export const TodoList: React.FC = () => {
         <div className={style.todo_total_items}>{todos.length} items left</div>
         <div className={style.todo_total_completed} onClick={deleteAllCompletedTodo}>Clear Completed</div>
         <div className={style.todo_total_sort}>
-          <button className={style.todo_total_sort_item_active}
-            value='ALL' onClick={setFilter}>All</button>
-          <button className={style.todo_total_sort_item}
-            value='ACTIVE' onClick={setFilter}>Active</button>
-          <button className={style.todo_total_sort_item}
-            value='COMPLETED' onClick={setFilter}>Completed</button>
+          <Filter value='ALL' name='All' currentFilter={filter} />
+          <Filter value='ACTIVE' name='Active' currentFilter={filter} />
+          <Filter value='COMPLETED' name='Completed' currentFilter={filter} />
         </div>
       </div>
     </>

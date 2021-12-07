@@ -6,5 +6,5 @@ export const rootReducer = combineReducers({
   filter: filterReducer,
   todoList: todoReducer,
 })
-
 export type RootState = ReturnType<typeof rootReducer>
+
