@@ -24,6 +24,12 @@
   padding-top: .9rem;
   color: var(--font);
 }
+.todoTextChecked{
+  padding-left: 1.9rem;
+  padding-top: .9rem;
+  color: var(--font);
+  text-decoration: line-through;
+}
 .todoInput:checked::before {
   background: url("../../images/icon-check.svg") no-repeat center, linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%)) ;
 }

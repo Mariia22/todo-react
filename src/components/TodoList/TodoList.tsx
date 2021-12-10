@@ -64,6 +64,11 @@ export const TodoList: React.FC = () => {
           <Filter value='COMPLETED' name='Completed' currentFilter={filter} />
         </div>
       </div>
+      <div className={style.todo_total_sort_mobile}>
+        <Filter value='ALL' name='All' currentFilter={filter} />
+        <Filter value='ACTIVE' name='Active' currentFilter={filter} />
+        <Filter value='COMPLETED' name='Completed' currentFilter={filter} />
+      </div>
     </>
   )
 }

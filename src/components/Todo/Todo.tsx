@@ -17,7 +17,7 @@ export const Todo: React.FC<Props> = ({ checked, text, id }) => {
   return (
     <label className={style.todoCheckBox}>
       <input className={style.todoInput} checked={checked} type='checkbox' onChange={handleChangeCheckbox} value={id} />
-      <span className={style.todoText}>{text}</span>
+      <span className={checked ? style.todoTextChecked : style.todoText}>{text}</span>
     </label>
   )
 }
