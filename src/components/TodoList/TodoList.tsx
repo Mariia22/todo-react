@@ -14,7 +14,7 @@ export const TodoList: React.FC = () => {
   const { todos } = useTypedSelector(state => state.todoList);
   const filter = useTypedSelector(state => state.filter);
   const { ClearAllTodoAction, DragEndAction } = useActions();
-  const isMobile = useMediaQuery({ query: `(max-width: 650px)` })
+  const isMobile = useMediaQuery({ query: `(max-width: 650px)` });
 
   const deleteAllCompletedTodo = () => {
     ClearAllTodoAction();
@@ -61,9 +61,9 @@ export const TodoList: React.FC = () => {
         <div className={style.todo_total_items}>{todos.length} items left</div>
         <div className={style.todo_total_completed} onClick={deleteAllCompletedTodo}>Clear Completed</div>
         <div className={isMobile ? style.todo_total_sort_mobile : style.todo_total_sort}>
-          <Filter value='ALL' name='All' currentFilter={filter} />
-          <Filter value='ACTIVE' name='Active' currentFilter={filter} />
-          <Filter value='COMPLETED' name='Completed' currentFilter={filter} />
+          <Filter value='ALL' name='All' currentFilter={filter} quantity={todos.length} />
+          <Filter value='ACTIVE' name='Active' currentFilter={filter} quantity={todos.filter(todo => todo.checked === false).length} />
+          <Filter value='COMPLETED' name='Completed' currentFilter={filter} quantity={todos.filter(todo => todo.checked === true).length} />
         </div>
       </div>
     </div>

@@ -6,8 +6,9 @@ interface Props {
   name: string
   value: string
   currentFilter: string
+  quantity: number
 }
-export const Filter: React.VFC<Props> = ({ name, value, currentFilter }) => {
+export const Filter: React.VFC<Props> = ({ name, value, currentFilter, quantity }) => {
   const { FilterTodoAction } = useActions();
 
   function setFilter(event: React.MouseEvent<HTMLButtonElement>) {
@@ -15,9 +16,9 @@ export const Filter: React.VFC<Props> = ({ name, value, currentFilter }) => {
   }
 
   if (value === currentFilter) {
-    return <button disabled className={style.todo_total_sort_item_active}>{name}</button>
+    return <button disabled className={style.todo_total_sort_item_active}>{name}({quantity})</button>
   }
   return (
-    <button className={style.todo_total_sort_item} value={value} onClick={setFilter}>{name}</button>
+    <button className={style.todo_total_sort_item} value={value} onClick={setFilter}>{name}({quantity})</button>
   )
 }
