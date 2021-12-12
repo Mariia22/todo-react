@@ -1,8 +1,20 @@
 @import './../../styles/variables.scss';
 
-.list{
-  background-color: var(--list);
+.todo__list__wrapper{
   width: 40%;
+  @media(max-width: $mobile){
+    width: 80%;
+  }
+  @media(min-width: $desktop){
+    width: 1440px;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+  }
+}
+.todo__list{
+  background-color: var(--list);
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin-top: -35px;
@@ -11,6 +23,9 @@
   list-style: none;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  @media(min-width: $desktop){
+    width: 40%;
+  }
 }
 .todo{
   width: 100%;
@@ -31,7 +46,7 @@
   grid-template: 1fr/ repeat(auto-fit,minmax(1fr,auto));
   grid-template-areas: 'item sort completed'; 
   align-items: center;  
-  width: 40%; 
+  width: 100%; 
   font-size: 0.7rem;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -41,6 +56,9 @@
   @media(max-width: $mobile){
     grid-template-areas: 'item completed'; 
     margin-bottom: 1rem;
+  }
+  @media(min-width: $desktop){
+    width: 40%;
   }
 }
 .todo_total_items{
@@ -69,7 +87,6 @@
   background-color: var(--list);
   display: flex;
   justify-content: space-around;
-  width: 40%; 
   font-size: 0.7rem;
   font-weight: bold;
   padding: 0.8rem;

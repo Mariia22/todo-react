@@ -4,6 +4,9 @@
   width: 40%;
   position:relative;
   margin-bottom: 50px;
+  @media(max-width: $mobile){
+    width: 80%;
+  }
 }
 
 .form::before{

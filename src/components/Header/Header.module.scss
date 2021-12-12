@@ -1,21 +1,32 @@
+@import './../../styles/variables.scss';
+
 .header{
   display:flex;
   flex-direction:column;
   align-items: center;
+  @media(min-width: $desktop){
+    width: 1440px;
+    margin: 0 auto;
+  }
 }
 .headerLight{
   @extend .header;
-  background: url('../../images/bg-desktop-light.jpg') no-repeat #fafafa;
+  background: url('../../images/bg-desktop-light.jpg') no-repeat;
+  background-color: var(--background-color);
 }
 .headerDark{
   @extend .header;
-  background: url('../../images/bg-desktop-dark.jpg') no-repeat #fafafa;
+  background: url('../../images/bg-desktop-dark.jpg') no-repeat;
+  background-color: var(--background-color);
 }
 .header_headers{
   display: flex;
   justify-content: space-between;
   padding: 45px 0 37px 0;
   width: 40%;
+  @media(max-width: $mobile){
+    width: 80%;
+  }
 }
 .header_name{
   text-transform: uppercase;

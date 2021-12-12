@@ -26,14 +26,14 @@ export const TodoList: React.FC = () => {
   }, [todos, filter]);
 
   return (
-    < >
+    <div className={style.todo__list__wrapper}>
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="todos" >
           {(provided) => (
             <ul
               {...provided.droppableProps}
               ref={provided.innerRef}
-              style={{ ...theme } as React.CSSProperties} className={style.list}
+              style={{ ...theme } as React.CSSProperties} className={style.todo__list}
             >
               {visibileFilter.map((todo, index) => (
                 <Draggable key={todo.id} index={index} draggableId={String(todo.id)}>
@@ -69,6 +69,6 @@ export const TodoList: React.FC = () => {
         <Filter value='ACTIVE' name='Active' currentFilter={filter} />
         <Filter value='COMPLETED' name='Completed' currentFilter={filter} />
       </div>
-    </>
+    </div>
   )
 }
