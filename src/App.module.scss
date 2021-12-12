@@ -42,4 +42,7 @@ body{
 .app_paragraph{
   text-align: center;
   font-size: .8rem;
+  @media(min-width: $desktop){
+    font-size: 2.5rem;
+  }
 }

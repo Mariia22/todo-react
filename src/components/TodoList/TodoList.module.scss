@@ -29,12 +29,15 @@
 }
 .todo{
   width: 100%;
-  height: 40px;
   color: $very-dark-grayish-blue;
   font-size: .7rem;
   padding-left: 1.3rem;
+  padding-right: .3rem;
   border-bottom: 1px solid $very-dark-grayish-blue;
   cursor:grab;
+  @media(min-width: $desktop){
+    font-size: 1.3rem;
+  }
 }
 .todoSelected{
   @extend .todo;
@@ -61,6 +64,7 @@
   }
   @media(min-width: $desktop){
     width: 40%;
+    font-size: 1.3rem;
   }
 }
 .todo_total_items{

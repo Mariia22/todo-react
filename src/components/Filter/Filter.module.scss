@@ -8,6 +8,9 @@
   outline: none;
   background-color: transparent;
   cursor: pointer;
+  @media(min-width: $desktop){
+    font-size: 1.3rem;
+  }
   }
   .todo_total_sort_item_active{
     @extend .todo_total_sort_item;

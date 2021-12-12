@@ -32,4 +32,7 @@
   outline: 0;
   font-size: .7rem;
   padding-left: 3rem;
+  @media(min-width: $desktop){
+    font-size: 1.3rem;
+  }
 }

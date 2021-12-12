@@ -3,7 +3,9 @@
 .todoCheckBox{
   position: relative;
   display: flex;
-  text-align: center;
+  flex-wrap: wrap;
+  padding-bottom: 0.6rem;
+  overflow: hidden;
 }
 .todoInput{
   appearance: none;
@@ -23,12 +25,20 @@
   padding-left: 1.9rem;
   padding-top: .9rem;
   color: var(--font);
+  padding-bottom: 0.3rem;
+  @media(min-width: $desktop){
+    padding-top: .5rem;
+  }
 }
 .todoTextChecked{
   padding-left: 1.9rem;
   padding-top: .9rem;
+  padding-bottom: 0.3rem;
   color: var(--font);
   text-decoration: line-through;
+  @media(min-width: $desktop){
+    padding-top: .5rem;
+  }
 }
 .todoInput:checked::before {
   background: url("../../images/icon-check.svg") no-repeat center, linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%)) ;
