@@ -56,6 +56,8 @@
   @media(max-width: $mobile){
     grid-template-areas: 'item completed'; 
     margin-bottom: 1rem;
+    position: relative;
+    margin-bottom: 4.5rem;
   }
   @media(min-width: $desktop){
     width: 40%;
@@ -77,20 +79,17 @@
   justify-content: space-around;
   font-weight: bold;
   padding: 0.8rem;
-  @media(max-width: $mobile){
-    display: none;
-  }
 }
 .todo_total_sort_mobile{
-  display:none;
-  @media(max-width: $mobile){
   background-color: var(--list);
   display: flex;
   justify-content: space-around;
   font-size: 0.7rem;
   font-weight: bold;
   padding: 0.8rem;
-  margin-bottom: 2rem;
   border-radius: 5px;
-  }
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
 }

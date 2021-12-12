@@ -7,12 +7,14 @@ import { Todo } from '../../components/Todo/Todo';
 import { useActions } from '../../hooks/useActions';
 import { selectTodo } from './../../store/reducers/todoSelectors'
 import { Filter } from '../Filter/Filter';
+import { useMediaQuery } from 'react-responsive';
 
 export const TodoList: React.FC = () => {
   const { theme } = useTheme();
   const { todos } = useTypedSelector(state => state.todoList);
   const filter = useTypedSelector(state => state.filter);
   const { ClearAllTodoAction, DragEndAction } = useActions();
+  const isMobile = useMediaQuery({ query: `(max-width: 650px)` })
 
   const deleteAllCompletedTodo = () => {
     ClearAllTodoAction();
@@ -58,16 +60,11 @@ export const TodoList: React.FC = () => {
       <div style={{ ...theme } as React.CSSProperties} className={style.todo_total}>
         <div className={style.todo_total_items}>{todos.length} items left</div>
         <div className={style.todo_total_completed} onClick={deleteAllCompletedTodo}>Clear Completed</div>
-        <div className={style.todo_total_sort}>
+        <div className={isMobile ? style.todo_total_sort_mobile : style.todo_total_sort}>
           <Filter value='ALL' name='All' currentFilter={filter} />
           <Filter value='ACTIVE' name='Active' currentFilter={filter} />
           <Filter value='COMPLETED' name='Completed' currentFilter={filter} />
         </div>
-      </div>
-      <div className={style.todo_total_sort_mobile}>
-        <Filter value='ALL' name='All' currentFilter={filter} />
-        <Filter value='ACTIVE' name='Active' currentFilter={filter} />
-        <Filter value='COMPLETED' name='Completed' currentFilter={filter} />
       </div>
     </div>
   )
