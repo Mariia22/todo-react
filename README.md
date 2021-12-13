@@ -9,5 +9,8 @@ Features:
 7. Drag and drop to reorder items on the list
 
 This app on VanillaJS is located at the link https://github.com/Mariia22/todolistJS
+
 Idea and design - https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW
+
 Live version - https://mariia22.github.io/todo-react/
+
