@@ -7,7 +7,12 @@ Features:
 5. Clear all completed todos
 6. Toggle light and dark mode
 7. Drag and drop to reorder items on the list
-The task for Startup Summer 2023 
+
+Technologies:
+1. React
+2. Redux
+3. Typescript
+4. SASS
 
 Idea and design - https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW
 Live version - https://mariia22.github.io/todo-react/
